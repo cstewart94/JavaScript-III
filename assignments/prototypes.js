@@ -37,10 +37,10 @@ function CharacterStats(chAttributes){
   this.name=chAttributes.name;
   this.healthPoints=chAttributes.healthPoints;
 }
-  
+CharacterStats.prototype=Object.create(GameObject.prototype);
 CharacterStats.prototype.takeDamage=function(){
   return `${this.name} took damage.`;
-}
+  };
 
 /*
   === Humanoid (Having an appearance or character resembling that of a human.) ===
@@ -57,7 +57,7 @@ CharacterStats.prototype.takeDamage=function(){
    this.weapons=humAttributes.weapons,
    this.language=humAttributes.language;
  }
-
+Humanoid.prototype=Object.create(CharacterStats.prototype);
 Humanoid.prototype.greet=function(){
   return `${this.name} offers a greeting in ${this.language}`;
 };
