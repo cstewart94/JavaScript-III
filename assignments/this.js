@@ -10,10 +10,15 @@
 */
 
 // Principle 1
-
 // code example for Window Binding
+function anotherCat(){
+    console.log(this.catSize);
+  }
+  var catSize="small"
+  anotherCat();
 
 // Principle 2
+// code example for Implicit Binding
 const exampleCat={
     fur: 'short hair',
     color: 'tabby',
@@ -24,12 +29,33 @@ const exampleCat={
     }
   }
   exampleCat.aboutCat();
-// code example for Implicit Binding
+
 
 // Principle 3
-
 // code example for New Binding
+function Cat(attributes){
+    this.catFur=attributes.catFur,
+    this.catColor=attributes.catColor,
+    this.catName=attributes.catName,
+    this.catBehavior=attributes.catBehavior
+    console.log(this);
+}
+
+const catOne = new Cat({
+    catFur: 'long hair',
+    catColor: 'black',
+    catName: 'Salem',
+    catBehavior: 'curious'
+});
 
 // Principle 4
-
 // code example for Explicit Binding
+function roar(){
+    console.log(this.meow);
+  }
+  
+  let bigCat={
+    meow:'roar'
+  }
+  
+  roar.call(bigCat);
